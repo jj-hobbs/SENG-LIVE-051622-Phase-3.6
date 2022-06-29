@@ -2,12 +2,35 @@ class Dog < Savable
 
   attr_accessor :name, :age, :breed, :image_url, :last_fed_at, :last_walked_at
 
+  # dog is going to have many feedings, this is represented by a collection(arrays)
+  # one to many relationship is called a 'has_many'
+  # one object has many instances of another class
+
+  def feedings 
+    # the goal of feedings is going to be to look at all our feeding instances and return an array of only the ones that belong to the instance we are calling feedings on
+    Feeding.all.select do |feeding| feeding.dog == self 
+    end
+  end
+
+  def dog_walks # return an array of all the dog_walks belonging to self
+    DogWalk.all.select do |dw| 
+      dw.dog == self
+    end 
+  end
+
+  def walks 
+    dog_walks.map {|dw| dw.walk}
+  end
+
   def walk
-    @last_walked_at = Time.now
+    DogWalk.create(
+      dog: self,
+      walk: Walk.new(time: Time.now)
+    )
   end
   
-  def feed
-    @last_fed_at = Time.now
+  def feed # zoie.feed
+    Feeding.create(time: Time.now, dog: self)
   end
 
   # print details about a dog (including the last walked at and last fed at times)

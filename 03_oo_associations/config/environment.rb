@@ -12,6 +12,8 @@ require_relative "../lib/savable.rb"
 require_relative "../lib/dog.rb"
 require_relative "../lib/walk.rb"
 require_relative "../lib/dogs_data.rb"
+require_relative "../lib/feeding.rb"
+require_relative "../lib/dog_walk.rb"
 
 # add a method that will reload the lib/dog.rb file so we can 
 # interact with the most recent version without restarting the console

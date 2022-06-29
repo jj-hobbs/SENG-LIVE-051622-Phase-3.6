@@ -1,6 +1,6 @@
 class Savable
   
-  @@all = {}
+  @@all = []
 
   def self.all
     @@all
