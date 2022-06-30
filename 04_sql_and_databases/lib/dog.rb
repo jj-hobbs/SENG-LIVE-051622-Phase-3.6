@@ -13,15 +13,16 @@ class Dog < Savable
 
   def walk
     new_walk = Walk.create(time: Time.now)
-    DogWalk.create(
-      dog: self,
-      walk: new_walk
+    dw = DogWalk.create(
+      dog: self
     )
+    dw.walk = new_walk
     new_walk
   end
   
   def feed
-    Feeding.create(time: Time.now, dog: self)
+    Feeding.create(time: Time.now, dog_id: self.id, food: "chow")
+    self
   end
 
   def feedings

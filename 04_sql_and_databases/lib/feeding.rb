@@ -1,6 +1,7 @@
 class Feeding < Savable
 
-  attr_accessor :time, :dog
+  attr_accessor :time, :dog, :food, :dog_id
+  attr_reader :id
 
   # an approach using the dog's object_id instead of the entire instance 
   # this is more like what we'll do when we have a database later on

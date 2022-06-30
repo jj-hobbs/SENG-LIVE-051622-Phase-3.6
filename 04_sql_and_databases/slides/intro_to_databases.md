@@ -39,18 +39,6 @@ Databases allow us to store our data outside of our code and we can do CRUD and 
 
 <!-- slide -->
 
-## ORM Analogy
-
-![ORM Analogy](https://res.cloudinary.com/dnocv6uwb/image/upload/v1651161995/Flatiron%20Slideshow%20images/analogy.drawio.svg)
-
-<!-- slide -->
-
-## Where we're headed
-
-![The Pattern](https://raw.githubusercontent.com/learn-co-students/phase3-lecture-repo-template/04_begin_intro_to_databases/04_intro_to_databases/demo/object-method-sql-query-return.drawio.svg?token=GHSAT0AAAAAABS54V3M5DXF4WXV6T3OUTPUYTJ6M6A)
-
-<!-- slide -->
-
 ## The Flow
 
 At the end of the phase, we'll be building out an API that will sit between our React app and our database:
@@ -61,6 +49,19 @@ At the end of the phase, we'll be building out an API that will sit between our 
 - Sends response back to Browser
 - Resolved promise from fetch leads to change in state
 - React updates the DOM
+
+<!-- slide -->
+
+## Where we're headed
+
+![The Pattern](https://raw.githubusercontent.com/learn-co-students/phase3-lecture-repo-template/04_begin_intro_to_databases/04_intro_to_databases/demo/object-method-sql-query-return.drawio.svg?token=GHSAT0AAAAAABS54V3M5DXF4WXV6T3OUTPUYTJ6M6A)
+
+<!-- slide -->
+
+## ORM Analogy
+
+![ORM Analogy](https://res.cloudinary.com/dnocv6uwb/image/upload/v1651161995/Flatiron%20Slideshow%20images/analogy.drawio.svg)
+
 
 <!-- slide -->
 
