@@ -1,6 +1,7 @@
 class Dog < Savable
 
-  attr_accessor :name, :age, :breed, :image_url, :last_fed_at, :last_walked_at
+  attr_accessor :name, :birthdate, :breed, :image_url, :last_fed_at, :last_walked_at
+  attr_reader :id
 
   def dog_walks
     DogWalk.all.select { |dw| dw.dog == self }

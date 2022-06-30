@@ -5,6 +5,10 @@ class Savable
 
   @@all = {}
 
+  def self.create(attributes = {})
+    self.new(attributes).save
+  end 
+
   def self.all
     @@all[self] ||= DOGS_DB.execute("SELECT * FROM #{self.table_name}").map do |row|
       self.new_from_row(row)
@@ -35,14 +39,19 @@ class Savable
     options.each do |property, value|
       if self.respond_to?("#{property.to_s}=") 
         self.send("#{property.to_s}=", value) 
-    end 
+      end 
     end
   end
 
   def save
-    sql = "INSERT INTO #{table_name_for_insert} (#{col_names_for_insert}) VALUES (#{values_for_insert})"
-    DOGS_DB.execute(sql)
-    @id = DOGS_DB.execute("SELECT last_insert_rowid() FROM #{table_name_for_insert}")[0][0]
+    if self.id
+      self.update
+    else 
+      # sql = <<-SQL 
+      # SQL
+      DOGS_DB.execute("INSERT INTO #{table_name_for_insert} (#{col_names_for_insert}) VALUES (#{values_for_insert})") 
+      @id = DOGS_DB.execute("SELECT last_insert_rowid() FROM #{table_name_for_insert}")[0][0]
+    end
   end
 
   def table_name_for_insert
