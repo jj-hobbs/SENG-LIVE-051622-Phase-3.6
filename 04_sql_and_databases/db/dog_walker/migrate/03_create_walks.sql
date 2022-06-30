@@ -1,4 +1,5 @@
 CREATE TABLE walks(
   id INTEGER PRIMARY KEY,
-  time DATETIME
+  time DATETIME,
+  dog_id INTEGER
 );
