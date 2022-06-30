@@ -32,18 +32,6 @@ presentation:
 
 <!-- slide -->
 
-## Agenda
-
-- Part 1 
-  - Explanation  database benefits 
-  and a bit of a preview of where we're going with SQL moving forward
-- Part 2 
-  - Hop into Google sheets and start talking about database relationships in the context of different domains
-  - practice deciding where to put foreign keys
-
-
-<!-- slide -->
-
 ## Putting things in Context
 Over the last few days one of the problems we've had is that the dogs that we create while we run the program only last while the program is running. We need to create them again every time the program runs.
 
