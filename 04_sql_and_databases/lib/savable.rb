@@ -1,9 +1,19 @@
 class Savable
-  
+
   @@all = {}
 
+  def self.new_from_row(row)
+    row.transform_keys{|k| k.to_sym} # will convert string keys to symbols
+  end
+
+  def self.table_name
+    self.name.tableize
+  end
+
   def self.all
-    @@all[self] ||= []
+    @@all[self] ||= DOGS_DB.execute("SELECT * FROM #{self.table_name}").map do |row|
+      self.new_from_row(row)
+    end
   end
 
   def self.create(attributes = {})

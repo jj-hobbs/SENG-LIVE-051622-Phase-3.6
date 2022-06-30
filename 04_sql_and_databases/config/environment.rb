@@ -6,15 +6,6 @@ require "pry"
 # require colorize to add the ability to print colored strings
 require "colorize"
 
-# use require_relative to load up our code in the lib directory
-require_relative "../lib/helper_methods.rb"
-require_relative "../lib/savable.rb"
-require_relative "../lib/dog.rb"
-require_relative "../lib/dog_walk.rb"
-require_relative "../lib/walk.rb"
-require_relative "../lib/feeding.rb"
-require_relative "../lib/dogs_data.rb"
-
 require "sqlite3" 
 
 DOGS_DB = SQLite3::Database.new("db/dog_walker/dog_walker.db")
@@ -25,6 +16,17 @@ APPTS_DB.results_as_hash = true
 
 RECIPES_DB = SQLite3::Database.new("db/recipes/recipes.db")
 RECIPES_DB.results_as_hash = true
+require 'active_support'
+require 'active_support/inflector'
+# use require_relative to load up our code in the lib directory
+require_relative "../lib/helper_methods.rb"
+require_relative "../lib/savable.rb"
+require_relative "../lib/dog.rb"
+require_relative "../lib/dog_walk.rb"
+require_relative "../lib/walk.rb"
+require_relative "../lib/feeding.rb"
+require_relative "../lib/dogs_data.rb"
+
 
 # add a method that will reload the lib/dog.rb file so we can 
 # interact with the most recent version without restarting the console
