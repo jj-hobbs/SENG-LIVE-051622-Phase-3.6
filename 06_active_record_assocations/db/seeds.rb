@@ -120,3 +120,7 @@ dogs_attributes.each do |attributes|
 end
 
 puts "#{Dog.count} dogs created"
+
+
+zoie = Dog.create(name: "zoie")
+Feeding.create(time: Time.now, dog_id: zoie.id)

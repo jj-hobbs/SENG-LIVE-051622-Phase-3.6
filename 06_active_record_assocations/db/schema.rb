@@ -10,7 +10,12 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_06_30_005323) do
+ActiveRecord::Schema.define(version: 2022_07_05_191819) do
+
+  create_table "dog_walks", force: :cascade do |t|
+    t.integer "dog_id"
+    t.integer "walk_id"
+  end
 
   create_table "dogs", force: :cascade do |t|
     t.string "name"
@@ -19,6 +24,17 @@ ActiveRecord::Schema.define(version: 2022_06_30_005323) do
     t.string "image_url"
     t.datetime "last_walked_at"
     t.datetime "last_fed_at"
+  end
+
+  create_table "feedings", force: :cascade do |t|
+    t.datetime "time"
+    t.integer "dog_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "walks", force: :cascade do |t|
+    t.datetime "time"
   end
 
 end

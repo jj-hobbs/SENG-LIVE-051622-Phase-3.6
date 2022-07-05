@@ -35,3 +35,43 @@
   - `Dog.first.walks`
   - `Walk.first.dogs`
   - `Dog.first.feedings`
+
+
+
+# Domain Modeling 
+
+Dog 
+- name, breed, birthdate, last_fed_at, last_walk, image_url
+- has many dog_walks
+- has many walks, through the dog_walks 
+- has many feedings
+
+
+DogWalk (join table) 
+- belong to a dog => foreign key column: dog_id
+- belong to a walk => foreign key col: walk_id
+
+
+Walk 
+- time:datetime
+- has many dog_walks 
+- has many dogs through dog_walks 
+
+Feeding 
+- time:datetime
+- belong to dog: foreign key column => dog_id
+
+- where do I need a foreign key: an id, a primary ID that refers to the record in another table that the object is related to through a belongs to relationship 
+- Primary key columns: AR is going to handle this one for us, and its going to auto incrememnt per record that is  persisted 
+
+
+# Association macros 
+ 
+ - a macro this is a class method that creates instance methods 
+
+ - belongs_to 
+ - has_many
+ - has_many :through 
+
+ Feeding.create(time: Time, dog_id: 1) *****
+ Feeding.create(time: Time, dog: Dog.first) => invoke .dog
