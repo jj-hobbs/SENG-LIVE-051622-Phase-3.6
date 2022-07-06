@@ -5,7 +5,7 @@ class ApplicationController < Sinatra::Base
     
   # end
   get "/" do 
-
+    { hello: "world" }.to_json
   end
 
 end
