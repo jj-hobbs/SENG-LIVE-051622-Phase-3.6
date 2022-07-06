@@ -16,4 +16,5 @@ class Dog < ActiveRecord::Base
       "#{years_old} #{'year'.pluralize(years_old)}"
     end
   end
+
 end
