@@ -35,3 +35,29 @@
   - `Dog.first.walks`
   - `Walk.first.dogs`
   - `Dog.first.feedings`
+
+
+# Domain Modeling
+Dog
+  - name, breed, birthdate, last_fed_at, last_walk, image_url
+  - has many dog_walks
+  - has many walks, through the dog_walks
+  - has many feeings
+
+DogWalk (join table)
+  - belong to a dog => foreign key column: dog_id
+  - belong to a walk => foreign key column: walk_id
+
+Walk
+  - time:datetime
+  - has many dog_walks
+  - has many dogs trough dog_walks
+
+Feeding
+  - time: datetime
+  - belong to dog => foreign key column: dog_id
+
+# Association macros
+  - belongs_to
+  - has_many
+  - has_many :through
